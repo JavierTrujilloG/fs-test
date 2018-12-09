@@ -1,5 +1,69 @@
+#root {
+    background-color: #f2f2f2;
+}
+
 .App {
-  text-align: center;
+    min-height: 100vh;
+    text-align: center;
+    background-color: #white;
+    width: 80%;
+    margin: auto;
+    padding-top: 30px;
+}
+
+.card-container {
+    margin: 20px 0px;
+    display: inline-flex;
+}
+
+.product-card {
+    width: 100px;
+    margin: 5px;
+}
+
+.button-checkout {
+    cursor: pointer;
+    display: inline-flex;
+    outline: none;
+    padding: 0;
+    position: relative;
+    align-items: center;
+    user-select: none;
+    border-radius: 0;
+    vertical-align: middle;
+    justify-content: center;
+    -moz-appearance: none;
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+    color: #2196f3;
+    border: 1px solid rgba(33, 150, 243, 0.5);
+    padding: 10px;
+    font-size: 0.875rem;
+        border-radius: 4px;
+    letter-spacing: 0.02857em;
+    text-transform: uppercase;
+    font-weight: 500;
+    line-height: 1.5;
+    margin-top: 15px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+  background-color: #4CAF50;
+  color: white;
 }
 
 .App-logo {
