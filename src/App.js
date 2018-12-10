@@ -30,7 +30,9 @@ class App extends Component {
         window.fastspring.builder.push(mySession);
         
         const { products } = await FSapi.getProducts();
-        this.setState({ products });
+        // Reset Builder in case it has acted on the DOM before the data is rendered.
+        // If that's the case the HTML directives won't work and user won't see anything
+        this.setState({ products }, window.fastspring.builder.reset);
     }
 
     selectAmount(item, event){
