@@ -37,7 +37,13 @@ class App extends Component {
 
     selectAmount(item, event){
         const { cart } = this.state;
-        cart[item] = event.target.value;
+        const { value } = event.target;
+        if (parseInt(value) === 0 && Object.keys(cart).indexOf(item) > -1) {
+            delete cart[item];
+        } else { 
+            cart[item] = value;
+        }
+        console.log('carrt', cart);
         this.setState({ cart });
     }
 
@@ -98,6 +104,8 @@ class App extends Component {
                 </tr>
             ));
         });
+        const checkoutEnabled = Object.keys(cart).length > 0;
+        const buttonClass = `button-checkout ${checkoutEnabled && 'enabled'}`;
         return (
             <div className="App">
                 <h1> The Hawaiian Cowboy </h1>
@@ -117,15 +125,14 @@ class App extends Component {
                             {cartElements}
                         </tbody>
                     </table>
-                {Object.keys(cart).length > 0 &&
                         <button
-                            className='button-checkout'
+                            disabled={!checkoutEnabled}
+                            className={buttonClass}
                             onClick={this.checkout}
                         >
                             Checkout
                         </button>
-                }
-                    
+                
                 </div>
 
             </div>
